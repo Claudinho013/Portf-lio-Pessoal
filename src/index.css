@@ -1,0 +1,381 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0A0A0F;
+    color: #E2E8F0;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0A0A0F;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #6C63FF;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #F50057;
+  }
+}
+
+@layer components {
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-center mb-4;
+    background: linear-gradient(135deg, #6C63FF, #F50057);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-subtitle {
+    @apply text-center text-slate-400 mb-14 text-lg;
+  }
+
+  .glass-card {
+    background: rgba(18, 18, 26, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(108, 99, 255, 0.2);
+    @apply rounded-2xl;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #6C63FF, #F50057);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 sm:px-8 rounded-full font-semibold text-white transition-all duration-300 text-sm sm:text-base;
+    background: linear-gradient(135deg, #6C63FF, #F50057);
+    background-size: 200% auto;
+    box-shadow: 0 0 20px rgba(108, 99, 255, 0.4);
+    -webkit-tap-highlight-color: transparent;
+    min-height: 44px;
+  }
+
+  .btn-primary:hover {
+    background-position: right center;
+    box-shadow: 0 0 40px rgba(108, 99, 255, 0.6);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 sm:px-8 rounded-full font-semibold transition-all duration-300 text-sm sm:text-base;
+    border: 2px solid #6C63FF;
+    color: #6C63FF;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 44px;
+  }
+
+  .btn-outline:hover {
+    background: rgba(108, 99, 255, 0.15);
+    box-shadow: 0 0 20px rgba(108, 99, 255, 0.3);
+    transform: translateY(-2px);
+  }
+}
+
+/* Particle background */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #6C63FF;
+  border-radius: 50%;
+  animation: particleMove linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes particleMove {
+  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10% { opacity: 0.5; }
+  90% { opacity: 0.5; }
+  100% { transform: translateY(-100px) translateX(100px); opacity: 0; }
+}
+
+/* Glowing orbs */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: orbPulse 8s ease-in-out infinite;
+}
+
+@keyframes orbPulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+/* Typing cursor */
+.typing-cursor::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+  color: #6C63FF;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Skill bar animation */
+.skill-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(108, 99, 255, 0.2);
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #6C63FF, #F50057);
+  transform-origin: left;
+  animation: fillBar 1.5s ease-out forwards;
+}
+
+@keyframes fillBar {
+  0% { width: 0%; }
+}
+
+/* Section reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Nav active link */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6C63FF, #F50057);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Grid background */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(108, 99, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(108, 99, 255, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Disable scale transforms on touch devices */
+@media (hover: none) {
+  .hover\:scale-105:hover,
+  .hover\:scale-110:hover,
+  .hover\:scale-\[1\.01\]:hover,
+  .hover\:scale-\[1\.02\]:hover,
+  .hover\:scale-\[1\.03\]:hover {
+    transform: none !important;
+  }
+}
+
+/* Ensure images don't overflow on mobile */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent text overflow on small screens */
+p, h1, h2, h3 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* ── Preloader ─────────────────────────────────── */
+.preloader {
+  position: fixed;
+  inset: 0;
+  background: #0A0A0F;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader-leave {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.preloader-bar-track {
+  width: 200px;
+  height: 3px;
+  background: rgba(108, 99, 255, 0.15);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.preloader-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6C63FF, #F50057);
+  border-radius: 3px;
+  transition: width 0.08s linear;
+  box-shadow: 0 0 10px rgba(108, 99, 255, 0.7);
+}
+
+/* ── Shimmer on project cards ──────────────────── */
+.shimmer-card {
+  position: relative;
+}
+
+.shimmer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(108, 99, 255, 0.09) 50%,
+    rgba(245, 0, 87, 0.05) 55%,
+    transparent 65%
+  );
+  transform: skewX(-15deg);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.shimmer-card:hover::before {
+  animation: shimmerSlide 0.65s ease forwards;
+}
+
+@keyframes shimmerSlide {
+  0%   { left: -75%; }
+  100% { left: 125%; }
+}
+
+/* ── Nav active indicator glow ─────────────────── */
+.nav-link.active {
+  color: #fff;
+}
+
+.nav-link.active::after {
+  width: 100%;
+  box-shadow: 0 0 8px rgba(108, 99, 255, 0.9), 0 0 14px rgba(245, 0, 87, 0.4);
+  height: 2px;
+}
+
+/* ── Certificate Modal ────────────────────────── */
+.cert-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(12px);
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeInBackdrop 0.2s ease;
+}
+
+@keyframes fadeInBackdrop {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.cert-modal {
+  background: rgba(18, 18, 26, 0.97);
+  border: 1px solid rgba(108, 99, 255, 0.3);
+  border-radius: 1.25rem;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 0 0 60px rgba(108, 99, 255, 0.2), 0 25px 50px rgba(0,0,0,0.5);
+  animation: slideUpModal 0.25s ease;
+}
+
+@keyframes slideUpModal {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)  scale(1); }
+}
+
+.cert-modal-preview {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  background: #0d0d15;
+  display: block;
+}
+
+.cert-modal-preview-placeholder {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: linear-gradient(135deg, rgba(108,99,255,0.07) 0%, rgba(245,0,87,0.05) 100%);
+  border-bottom: 1px solid rgba(108,99,255,0.15);
+}
+@keyframes statPop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.stat-pop {
+  animation: statPop 0.4s ease;
+}
