@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { FaGithub, FaExternalLinkAlt, FaStar } from 'react-icons/fa'
+import { FaGithub, FaExternalLinkAlt, FaStar, FaBook } from 'react-icons/fa'
 import { HiCode } from 'react-icons/hi'
 import { projects, projectCategories } from '../data/projects'
 import { useLanguage } from '../context/LanguageContext'
@@ -21,6 +21,7 @@ const ProjectCard = ({ project, index, t, title, description }) => {
     'Análise de Dados': '#6C63FF',
     'Data Science': '#F50057',
     Node: '#339933',
+    SUPABASE: '#3ECF8E',
   }
 
   const getColor = (tag) => tagColors[tag] || '#6C63FF'
@@ -79,7 +80,7 @@ const ProjectCard = ({ project, index, t, title, description }) => {
         </div>
 
         {/* Buttons */}
-        <div className="flex gap-3 mt-auto pt-4 border-t border-border">
+        <div className="flex flex-wrap gap-3 mt-auto pt-4 border-t border-border">
           {project.github && project.github !== '#' && (
             <a
               href={project.github}
@@ -90,12 +91,32 @@ const ProjectCard = ({ project, index, t, title, description }) => {
               <FaGithub /> {t.projects.code}
             </a>
           )}
+          {project.manual && project.manual !== '#' && (
+            <a
+              href={project.manual}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-xs text-slate-400 hover:text-white transition-colors duration-200 font-mono"
+            >
+              <FaBook /> {t.projects.manual}
+            </a>
+          )}
+          {project.drivePage && project.drivePage !== '#' && (
+            <a
+              href={project.drivePage}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-xs text-primary hover:text-white transition-colors duration-200 font-mono"
+            >
+              <FaExternalLinkAlt /> {t.projects.drivePage}
+            </a>
+          )}
           {project.demo && project.demo !== '#' && (
             <a
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs text-primary hover:text-white transition-colors duration-200 font-mono ml-auto"
+              className="flex items-center gap-1.5 text-xs text-primary hover:text-white transition-colors duration-200 font-mono"
             >
               <FaExternalLinkAlt /> {t.projects.liveDemo}
             </a>

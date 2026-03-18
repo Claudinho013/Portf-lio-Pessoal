@@ -5,8 +5,10 @@ export const projects = [
     description:
       'Sistema web completo para gerenciamento de drivers, com controle de cadastro, rotas e status em tempo real.',
     image: null,
-    tags: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
+    tags: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript', 'SUPABASE'],
     github: 'https://github.com/Claudinho013/Driver-Portifolio',
+    manual: 'https://driverdocs.infinityfreeapp.com',
+    drivePage: 'https://driverportifolio.infinityfreeapp.com/?i=1',
     demo: '#',
     featured: true,
     category: 'Backend',

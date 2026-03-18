@@ -72,6 +72,8 @@ export const translations = {
       featured: 'Destaque',
       code: 'Código',
       liveDemo: 'Demo ao vivo',
+      manual: 'Manual',
+      drivePage: 'Página do Drive',
       addHint: '// Para adicionar projetos, edite o arquivo:',
       addSub: 'Adicione um novo objeto no array',
       items: [
@@ -281,6 +283,8 @@ export const translations = {
       featured: 'Featured',
       code: 'Code',
       liveDemo: 'Live Demo',
+      manual: 'Manual',
+      drivePage: 'Drive Page',
       addHint: '// To add projects, edit the file:',
       addSub: 'Add a new object to the array',
       items: [
@@ -490,6 +494,8 @@ export const translations = {
       featured: 'Destacado',
       code: 'Código',
       liveDemo: 'Demo en vivo',
+      manual: 'Manual',
+      drivePage: 'Página del Drive',
       addHint: '// Para agregar proyectos, edita el archivo:',
       addSub: 'Agrega un nuevo objeto en el array',
       items: [
