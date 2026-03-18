@@ -145,7 +145,7 @@ const CertCard = ({ cert, index, onClick }) => {
 
       <div className="flex-1">
         <h3 className="font-semibold text-sm text-white mb-1 group-hover:text-primary transition-colors duration-200">
-          {cert.name}
+          {cert.cardName || cert.name}
         </h3>
         <p className="text-xs text-slate-500 font-mono">{cert.issuer}</p>
       </div>
