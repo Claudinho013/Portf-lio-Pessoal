@@ -19,11 +19,12 @@ export const projects = [
     description:
       'Aplicação de gerenciamento de tarefas no estilo Kanban, com colunas arrastáveis, prioridades e controle de fluxo.',
     image: null,
-    tags: ['React', 'JavaScript', 'CSS'],
+    tags: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
     github: '#',
+    drivePage: 'https://kanbanportfolio.gt.tc',
     demo: '#',
-    featured: false,
-    category: 'Frontend',
+    featured: true,
+    category: ['Frontend', 'Backend'],
   },
   {
     id: 3,
@@ -33,9 +34,10 @@ export const projects = [
     image: null,
     tags: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
     github: '#',
+    drivePage: 'http://helpdesk.siteseguro.ws',
     demo: '#',
-    featured: false,
-    category: 'Backend',
+    featured: true,
+    category: ['Frontend', 'Backend'],
   },
 ]
 
